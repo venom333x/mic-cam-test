@@ -1,0 +1,22 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Camera & Mic Access Test</title>
+</head>
+<body>
+  <h1>Camera & Microphone Test</h1>
+  <video id="video" width="640" height="480" autoplay></video>
+
+  <script>
+    navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+      .then(function (stream) {
+        document.getElementById('video').srcObject = stream;
+      })
+      .catch(function (err) {
+        console.error('Error accessing media devices:', err);
+        alert("Permission denied or device not found.");
+      });
+  </script>
+</body>
+</html>
